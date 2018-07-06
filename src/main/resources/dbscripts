@@ -1,0 +1,21 @@
+ALTER TABLE   BidDocument  
+CHANGE COLUMN  Document   DocumentPath  VARCHAR(255) NULL DEFAULT NULL ;
+
+
+ALTER TABLE `bidsense`.`equipmentlength` 
+DROP FOREIGN KEY `FKbon99yclsoprat6yo5qu4l9eu`;
+ALTER TABLE `bidsense`.`equipmentlength` 
+ADD INDEX `FKbon99yclsoprat6yo5qu4l9eu_idx` (`EquipmentId` ASC),
+DROP PRIMARY KEY;
+ALTER TABLE `bidsense`.`equipmentlength` 
+ADD CONSTRAINT `FKbon99yclsoprat6yo5qu4l9eu`
+  FOREIGN KEY (`EquipmentId`)
+  REFERENCES `bidsense`.`equipment` (`Equipment`);
+
+
+ALTER TABLE `bidsense`.`equipmentlength` 
+CHANGE COLUMN `EquipmentId` `EquipmentId` INT NULL DEFAULT NULL ;
+
+
+ALTER TABLE `bidsense`.`equipment` 
+CHANGE COLUMN `parent_id` `parent_id` INT(11) NULL DEFAULT NULL ;
